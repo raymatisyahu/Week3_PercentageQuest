@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percent Power Quest | Grade 6 Mathematics</title>
+<style>
+:root{--night:#090d24;--deep:#11183c;--blue:#397bff;--cyan:#42e8ff;--gold:#ffd45c;--purple:#9b6bff;--ink:#f5f7ff;--muted:#bac7f2;--green:#4ade80;--red:#ff7272}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.5;background:#090d24}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 12% 15%,#244f9a 0,transparent 28%),radial-gradient(circle at 88% 30%,#562f93 0,transparent 26%),linear-gradient(145deg,#080c22,#11183c 55%,#071b35)}
+body:after{content:"";position:fixed;inset:0;z-index:-1;opacity:.23;background-image:radial-gradient(#fff 1px,transparent 1px),radial-gradient(#63e8ff 1px,transparent 1px);background-size:46px 46px,79px 79px;background-position:0 0,22px 31px;pointer-events:none}
+header{text-align:center;padding:25px 15px 20px;background:linear-gradient(90deg,#101638d9,#182b66e8,#351c60d9);border-bottom:1px solid #7dd3fc55;box-shadow:0 7px 35px #0005}
+.brand{font-size:.8rem;letter-spacing:2px;font-weight:900;color:var(--cyan)}header h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:8px 0;text-shadow:0 0 22px #42e8ff55}header p{margin:0;color:#e2e8ff}
+.wrap{max-width:1150px;margin:20px auto;padding:0 14px}.game{background:#0d1430eF;border:1px solid #8b9dff55;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px #0008;backdrop-filter:blur(10px)}
+.progress-track{height:8px;background:#29345f}.progress{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--gold));transition:width .3s}
+.playerbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:13px 18px;background:#121b3b;border-bottom:1px solid #ffffff18}.tag{padding:6px 12px;border-radius:99px;background:#20386c;color:#dbeafe;font-size:.86rem;font-weight:800;border:1px solid #4c78d5}.playerstats{display:flex;gap:9px;flex-wrap:wrap}.stat{padding:6px 11px;background:#1a254b;border:1px solid #5667a5;border-radius:10px;font-size:.88rem}.stat b{color:var(--gold)}
+main{padding:clamp(14px,3vw,27px)}.identity{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;padding:16px;border:1px solid #6679c8;border-radius:16px;background:linear-gradient(120deg,#172653,#211a49)}
+.identity label{display:block;font-weight:800;margin-bottom:5px;color:#e0e7ff}.identity input{width:100%;padding:12px 13px;border:1px solid #7788ce;border-radius:10px;background:#0a1230;color:white;font-size:1rem}.identity input::placeholder{color:#9daedb}.identity input:focus{outline:3px solid #42e8ff55;border-color:var(--cyan)}
+.hero{display:grid;grid-template-columns:112px 1fr;align-items:center;gap:20px;padding:23px;border-radius:18px;border:1px solid #5d72c5;background:linear-gradient(120deg,#182b58,#211b4b);position:relative;overflow:hidden}
+.hero:after{content:"✦  %  ✦";position:absolute;right:12px;bottom:-24px;font-size:clamp(3rem,8vw,6rem);font-weight:900;color:#d8e6ff0c;pointer-events:none}
+.avatar{width:100px;height:100px;display:grid;place-items:center;font-size:60px;border-radius:50%;background:radial-gradient(circle,#334b94,#172248);border:3px solid var(--cyan);box-shadow:0 0 25px #42e8ff55;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px)}}.eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:1.6px;color:var(--cyan);font-weight:900}h2{font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.2;margin:5px 0 8px}h3{margin:0 0 9px}.hero p{margin:0;color:#e3eaff;max-width:760px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}.nav button{flex:1 1 130px;background:#17244b;border:1px solid #5366a7;color:#e9edff}.nav button.active{background:linear-gradient(120deg,#2563eb,#7c3aed);border-color:var(--cyan);box-shadow:0 0 15px #397bff55}
+.columns{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(270px,.8fr);gap:15px}.panel{background:#111b3b;border:1px solid #475b9e;border-radius:17px;padding:18px;min-width:0;box-shadow:inset 0 1px #ffffff08}.panel-title{display:flex;align-items:center;gap:9px}.panel-title span{font-size:1.45rem}.math{font-size:clamp(1.8rem,4vw,3rem);text-align:center;color:var(--gold);font-weight:900;padding:14px 2px;text-shadow:0 0 15px #ffd45c22;overflow-wrap:anywhere}
+.content{color:#eef2ff}.content ul,.content ol{padding-left:22px}.content li{margin:7px 0}.content strong{color:#fff}.visual{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;max-width:430px;margin:17px auto}.sq{width:25px;height:25px;border-radius:5px;background:#293657;border:1px solid #44547d}.sq.on{background:linear-gradient(135deg,#42e8ff,#397bff);border-color:#8bf2ff;box-shadow:0 0 6px #42e8ff66}.meter{height:18px;border-radius:99px;background:#293657;overflow:hidden;margin:14px 0 6px}.meterfill{height:100%;width:0;background:linear-gradient(90deg,#397bff,#42e8ff,#9b6bff);transition:width .35s}.caption{text-align:center;color:var(--muted);font-size:.88rem}
+.tip{margin-top:13px;background:#28244b;border:1px solid #7560bc;border-left:5px solid var(--gold);border-radius:10px;padding:12px;color:#fff2c7}.memory{margin-top:12px;padding:12px;background:#122a40;border:1px solid #237d99;border-radius:10px}.memory p{margin:4px 0 0;color:#d8f8ff}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.choices button{background:#17264c;color:#f3f6ff;border:1px solid #6275b3;text-align:left}.choices button:hover{background:#253b70}.choices button.correct{background:#124b43;border-color:var(--green)}.choices button.wrong{background:#572b43;border-color:var(--red)}.feedback{min-height:28px;margin-top:10px;font-weight:800}.good{color:var(--green)}.bad{color:#ff9aab}
+.controls{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:18px}button{font:inherit;font-weight:800;cursor:pointer;border:1px solid #ffffff22;border-radius:10px;padding:11px 14px;background:linear-gradient(120deg,#2563eb,#6d45da);color:white;transition:filter .15s,transform .15s}button:hover{filter:brightness(1.1);transform:translateY(-1px)}button:disabled{opacity:.4;cursor:not-allowed;transform:none}.secondary{background:#253052}.goldbtn{background:linear-gradient(120deg,#facc15,#f59e0b);color:#20172b}.greenbtn{background:linear-gradient(120deg,#15803d,#16a34a)}select{font:inherit;padding:7px;border-radius:8px;background:#17244b;color:white;border:1px solid #5366a7}.hidden{display:none!important}
+#testPanel{margin-top:17px;border-color:#e5bf51;box-shadow:0 0 25px #ffd45c15}.test-head{padding:16px;border-radius:12px;background:linear-gradient(120deg,#493a19,#30254e);border:1px solid #8e773f;margin-bottom:12px}.test-head h2{color:var(--gold)}.question{padding:14px 0;border-bottom:1px solid #35436f}.question p{font-weight:800}.question label{display:block;padding:7px 9px;border-radius:8px;cursor:pointer;color:#e7ebff}.question label:hover{background:#1a2b55}.question input{accent-color:#42e8ff}.result{margin-top:15px;padding:18px;border-radius:15px;border:2px solid var(--gold);background:linear-gradient(130deg,#18294b,#30234e);text-align:center}.result h3{font-size:1.8rem;color:var(--gold)}.result .scoreline{font-size:1.1rem;color:#e0f2fe}.result .identityline{font-weight:800;color:white}.screenshot-note{padding:12px;background:#102d3f;border:1px dashed var(--cyan);border-radius:10px;color:#d8f8ff;margin-top:12px}.badge{display:inline-block;border-radius:999px;background:#26385f;border:1px solid #5f7cbd;padding:5px 10px;color:#dbeafe;font-weight:800;margin:3px}
+footer{text-align:center;padding:18px;color:#aebbe7;font-size:.9rem}
+
+/* Persistent AI teacher: stays visible in the lower-right on every quest stage */
+.ai-host{position:fixed;right:18px;bottom:16px;z-index:1000;display:flex;align-items:flex-end;gap:9px;max-width:min(360px,calc(100vw - 24px));pointer-events:none}
+.ai-bubble{max-width:220px;padding:10px 13px;border-radius:15px 15px 3px 15px;background:#f8fbff;color:#15234a;border:2px solid #42e8ff;box-shadow:0 8px 25px #0008;font-size:.83rem;font-weight:700;line-height:1.35}
+.ai-bubble small{display:block;color:#2456b5;font-size:.7rem;text-transform:uppercase;letter-spacing:.7px;margin-bottom:3px}
+.ai-person{width:88px;height:104px;flex:0 0 88px;position:relative;border-radius:20px 20px 25px 25px;background:linear-gradient(155deg,#8bb9d8,#304b78 55%,#17254b);border:3px solid #42e8ff;box-shadow:0 0 22px #42e8ff88;display:flex;flex-direction:column;align-items:center;justify-content:center;animation:teacherBob 2.8s ease-in-out infinite}
+.ai-person .ai-face{width:59px;height:52px;border-radius:14px;background:linear-gradient(145deg,#e5f7ff,#7da7c6 48%,#d7f4ff);border:3px solid #d9f7ff;box-shadow:inset 0 0 0 3px #476b91,0 0 14px #42e8ff88;position:relative;display:flex;justify-content:center;align-items:center;gap:13px;margin-top:7px}
+.ai-eye{width:11px;height:11px;background:#42e8ff;border:2px solid #f0fdff;border-radius:4px;display:block;box-shadow:0 0 9px #42e8ff}
+.ai-mouth{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);width:23px;height:6px;border-radius:3px;background:repeating-linear-gradient(90deg,#14304f 0 3px,#42e8ff 3px 5px);border:1px solid #2f6486}
+.ai-host.talking .ai-mouth{height:10px;width:25px;border-radius:3px;background:repeating-linear-gradient(90deg,#14304f 0 3px,#42e8ff 3px 5px);animation:mouthTalk .18s infinite alternate}
+.ai-person .ai-hair{position:absolute;top:5px;width:19px;height:8px;background:#d9f7ff;border:2px solid #42e8ff;border-radius:4px;z-index:2;box-shadow:0 0 10px #42e8ff}
+.ai-person .ai-badge{color:#fff;font-size:.58rem;font-weight:900;letter-spacing:.5px;margin-top:4px}
+.ai-person .ai-spark{position:absolute;top:-9px;right:-6px;font-size:21px;filter:drop-shadow(0 0 5px #ffd45c)}
+@keyframes teacherBob{50%{transform:translateY(-5px)}}
+@keyframes mouthTalk{from{transform:translateX(-50%) scaleY(.55)}to{transform:translateX(-50%) scaleY(1.15)}}
+@media(max-width:600px){.ai-host{right:8px;bottom:8px;gap:5px;max-width:calc(100vw - 16px)}.ai-person{width:66px;height:82px;flex-basis:66px}.ai-person .ai-face{width:47px;height:45px;gap:9px}.ai-person .ai-hair{width:49px;height:16px;top:8px}.ai-person .ai-badge{font-size:.48rem}.ai-bubble{max-width:170px;font-size:.74rem;padding:8px 10px}}
+@media print{.ai-host{display:none!important}}
+
+@media(max-width:760px){.columns{grid-template-columns:1fr}.hero{grid-template-columns:1fr;text-align:center}.avatar{margin:auto}.identity{grid-template-columns:1fr}.choices{grid-template-columns:1fr}.playerbar{justify-content:center}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">GRADE 6 MATHEMATICS • NUMBER AND ALGEBRA • QUEST MODE</div>
+ <h1>⚔️ PERCENT POWER QUEST</h1>
+ <p>Enter the Math Kingdom. Master percentages. Claim your knowledge crystal!</p>
+</header>
+<div class="wrap"><div class="game">
+ <div class="progress-track"><div class="progress" id="progress"></div></div>
+ <div class="playerbar">
+  <span class="tag" id="slideCount">QUEST START</span>
+  <div class="playerstats"><span class="stat">⭐ XP: <b id="xp">0</b></span><span class="stat">🗺️ Stage: <b id="stage">1/8</b></span></div>
+  <label for="voice"><strong>🔊 Voice </strong><select id="voice"><option value="">Automatic English</option></select></label>
+ </div>
+ <main>
+  <section class="identity" id="identity">
+   <div><label for="studentName">🧙 Hero's Name (Student Name)</label><input id="studentName" type="text" maxlength="70" placeholder="Enter your full name" autocomplete="name" required></div>
+   <div><label for="studentSection">🏰 Class Guild (Section)</label><input id="studentSection" type="text" maxlength="50" placeholder="Write your section (e.g., Grade 6 - Corrales)" required></div>
+  </section>
+  <section class="hero">
+   <div class="avatar" id="avatar">🧙</div>
+   <div><div class="eyebrow" id="tag">Welcome, Math Adventurer!</div><h2 id="title">Your Quest Begins Here!</h2><p id="intro">I am the AI Mathematics Teaching Assistant of Sir Raymond O. Galapin. Enter your name and section, then begin your mission to master percentages!</p></div>
+  </section>
+  <nav class="nav" id="nav" aria-label="Quest stages"></nav>
+  <div class="columns">
+   <section class="panel">
+    <div class="panel-title"><span>📜</span><h3>Quest Scroll: Learn the Skill</h3></div>
+    <div class="math" id="math">Percent means out of 100!</div>
+    <div class="content" id="content"></div>
+    <div class="visual" id="visual" aria-label="One hundred square percentage model"></div>
+    <div class="meter"><div class="meterfill" id="meterFill"></div></div>
+    <div class="caption" id="caption">Explore the percentage grid.</div>
+   </section>
+   <aside class="panel">
+    <div class="panel-title"><span>🧩</span><h3>Guardian's Challenge</h3></div>
+    <p id="prompt">Choose the best answer to earn XP.</p>
+    <div class="choices" id="choices"></div>
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+    <div class="tip" id="tip"><strong>✨ Guide's Hint:</strong> Percent means out of one hundred.</div>
+    <div class="memory"><strong>💎 Knowledge Crystal</strong><p id="memory">Remember the key idea.</p></div>
+   </aside>
+  </div>
+  <section class="panel hidden" id="testPanel">
+   <div class="test-head"><div class="eyebrow">FINAL BOSS • FORMATIVE TEST</div><h2>🏆 The Percentage Guardian's Trial</h2><p>Answer all five questions. Your score card will show your name, section, score, and feedback. Take a screenshot of the result and submit it to your teacher.</p></div>
+   <form id="testForm"><div id="questions"></div><div class="controls"><button type="submit" class="greenbtn">⚔️ Submit Quest Results</button><button type="button" class="secondary" id="retry">🔁 Retry Trial</button></div></form>
+   <div id="result" class="result hidden" aria-live="polite"></div>
+  </section>
+  <div class="controls">
+   <button class="secondary" id="prev">⬅ Previous Stage</button><button id="teach">🔊 Explain Stage</button><button class="goldbtn" id="pause">⏸ Pause / Resume</button><button id="next">Next Stage ➜</button><button class="secondary" id="all">▶ Narrate Whole Quest</button><button class="secondary" id="stop">⏹ Stop Voice</button><button class="greenbtn" id="startTest">🏆 Begin Formative Test</button>
+  </div>
+ </main>
+
+</div>
+<div class="ai-host" id="aiHost" aria-live="polite">
+  <div class="ai-bubble"><small>Sir Raymond's AI Assistant</small><span id="aiBubbleText">Hello, Math Adventurer! I'm here to guide you through every stage.</span></div>
+  <div class="ai-person" aria-label="Animated AI teacher avatar">
+    <span class="ai-spark">✨</span><span class="ai-hair"></span>
+    <div class="ai-face"><span class="ai-eye"></span><span class="ai-eye"></span><span class="ai-mouth"></span></div>
+    <div class="ai-badge">AI TEACHER</div>
+  </div>
+</div>
+<footer>Percent Power Quest • AI Mathematics Teaching Assistant of Sir Raymond O. Galapin<br>Tip: After the formative test is scored, screenshot the complete result card for submission.</footer></div>
+<script>
+const slides=[
+{tag:"Quest Prologue",bubble:"Hi! I’m Sir Raymond’s AI assistant. Let’s begin our math adventure!",title:"Welcome, Math Adventurers!",avatar:"🧙",intro:"Greetings, learner! I am the AI Mathematics Teaching Assistant of Sir Raymond O. Galapin. Your mission is to explore the Math Kingdom and master percentages. Enter your full name and section above so your result card can identify you!",math:"Your mission: Master Percentages!",
+content:`<p><strong>Welcome to Percent Power Quest!</strong> You will travel through math stages, learn simple rules, and answer challenges to earn experience points (XP).</p><ol><li>Understand what percent means.</li><li>Connect fractions, decimals, and percentages.</li><li>Use percentages to solve everyday problems.</li><li>Complete the final formative test.</li></ol><p>Ready, adventurer? Your best tool is understanding—not memorizing without meaning!</p>`,
+visual:0,caption:"Your adventure starts with the basics.",tip:"Enter your name and section above before you begin the formative test.",memory:"Percent means “out of one hundred.”",prompt:"Where can people use percentages?",options:["Discounts and test scores","Only in fantasy games","Only in the library","Nowhere in real life"],answer:0,xp:10,voice:"Greetings, Math Adventurers! I am the AI Mathematics Teaching Assistant of Sir Raymond O. Galapin. Welcome to Percent Power Quest. Enter your full name and section. Your mission is to learn what percent means, connect fractions and decimals, solve real-life problems, and complete the formative test. Let's begin your adventure!"},
+{tag:"Stage 1 • Percent Plains",bubble:"Percent means out of 100. Let’s count the glowing squares together!",title:"Percent Means 'Out of 100'",avatar:"🟦",intro:"The easiest way to understand percent is to imagine 100 equal squares. The percent tells you how many squares out of 100 you are describing.",math:"25% = 25 out of 100",
+content:`<p>Imagine a magic grid of 100 squares. If 25 squares glow blue, then 25% of the grid is blue.</p><ol><li>Count the blue squares: 25.</li><li>Total squares: 100.</li><li>Write the amount as 25%.</li></ol><p><strong>Percent (%) means per hundred.</strong></p>`,
+visual:25,caption:"25 glowing squares out of 100 = 25%.",tip:"When you see %, think: how many out of 100?",memory:"25% = 25/100.",prompt:"If 60 out of 100 squares are blue, what percent is blue?",options:["6%","40%","60%","100%"],answer:2,xp:10,voice:"Welcome to Percent Plains! Percent means out of one hundred. If twenty-five squares out of one hundred glow blue, that is twenty-five percent. If sixty out of one hundred squares are blue, that is sixty percent. The percent sign is a shortcut for per hundred."},
+{tag:"Stage 2 • Fraction Forest",bubble:"Same amount, three forms: fraction, decimal, and percent!",title:"One Amount, Three Forms",avatar:"🌳",intro:"Fractions, decimals, and percentages are like three costumes worn by the same value. They look different but can mean exactly the same thing.",math:"1/2 = 0.5 = 50%",
+content:`<ul><li><strong>Fraction:</strong> 1/2 means one of two equal parts.</li><li><strong>Decimal:</strong> 0.5 means one-half.</li><li><strong>Percentage:</strong> 50% means 50 out of 100.</li></ul><p>All three represent half of a whole.</p>`,
+visual:50,caption:"Half the grid glows: 50%.",tip:"A half is 50%; a quarter is 25%; a whole is 100%.",memory:"1/4 = 0.25 = 25%.",prompt:"Which percentage is equal to 1/4?",options:["10%","25%","40%","75%"],answer:1,xp:10,voice:"In Fraction Forest, discover three forms of the same value. One-half equals zero point five and fifty percent. One-fourth equals zero point two five and twenty-five percent. Imagine sharing a whole chocolate bar into four equal pieces. One piece is one-fourth, or twenty-five percent."},
+{tag:"Stage 3 • Division Dungeon",bubble:"Remember the easy rule: divide the top by the bottom!",title:"Fraction to Decimal: Divide!",avatar:"➗",intro:"To change a fraction into a decimal, divide the numerator—the top number—by the denominator—the bottom number.",math:"3/4 = 3 ÷ 4 = 0.75",
+content:`<ol><li>Numerator (top): 3.</li><li>Denominator (bottom): 4.</li><li>Divide 3 by 4.</li><li>Answer: 0.75.</li></ol><p>So, three-fourths is equal to zero point seven five.</p>`,
+visual:75,caption:"Three-fourths of the grid glows: 75%.",tip:"Say the rule: top number divided by bottom number.",memory:"Fraction → decimal = numerator ÷ denominator.",prompt:"What is 1/2 as a decimal?",options:["0.2","0.25","0.5","1.5"],answer:2,xp:10,voice:"Enter the Division Dungeon! To convert a fraction into a decimal, divide the numerator by the denominator. Three-fourths means three divided by four. The answer is zero point seven five. One-half means one divided by two, which is zero point five."},
+{tag:"Stage 4 • Decimal Volcano",bubble:"Multiply the decimal by 100 to turn it into a percent!",title:"Decimal to Percent: Multiply by 100!",avatar:"🌋",intro:"To turn a decimal into a percentage, multiply by 100 and add the percent sign. Think of moving the decimal point two places to the right.",math:"0.75 × 100 = 75%",
+content:`<ol><li>Start with 0.75.</li><li>Multiply by 100: 0.75 × 100 = 75.</li><li>Add the percent sign: 75%.</li></ol><p>To go backward, divide a percentage by 100: 75% = 0.75.</p>`,
+visual:75,caption:"75 out of 100 squares glow: 75%.",tip:"Decimal to percent: ×100. Percent to decimal: ÷100.",memory:"0.4 = 40%; 0.08 = 8%; 1.0 = 100%.",prompt:"What is 0.4 as a percentage?",options:["4%","40%","0.4%","400%"],answer:1,xp:10,voice:"At Decimal Volcano, learn the conversion power. Multiply a decimal by one hundred to turn it into a percentage. Zero point seven five times one hundred is seventy-five, so the answer is seventy-five percent. To turn a percent into a decimal, divide by one hundred."},
+{tag:"Stage 5 • Market of Savings",bubble:"Let’s calculate the discount and discover how much you save!",title:"Use Percentages to Shop Smart!",avatar:"🛍️",intro:"At the Market of Savings, percentages help you calculate discounts. A discount is the money taken off the original price.",math:"20% of ₱500 = ₱100",
+content:`<ol><li>Original price: ₱500.</li><li>Change 20% to a decimal: 0.20.</li><li>Discount: 0.20 × ₱500 = ₱100.</li><li>Sale price: ₱500 − ₱100 = <strong>₱400</strong>.</li></ol><p>You save ₱100 and pay ₱400.</p>`,
+visual:20,caption:"The 20 highlighted squares represent a 20% discount.",tip:"The discount is not the sale price. Subtract the discount from the original price.",memory:"Percent of an amount = percent as decimal × amount.",prompt:"A ₱200 item has a 10% discount. How much do you save?",options:["₱10","₱20","₱90","₱180"],answer:1,xp:10,voice:"Welcome to the Market of Savings! A bag costs five hundred pesos and has a twenty percent discount. Change twenty percent to zero point two, then multiply zero point two by five hundred. You save one hundred pesos. Subtract that from five hundred and the sale price is four hundred pesos."},
+{tag:"Stage 6 • Scoreboard Summit",bubble:"Use your score to find the percentage. You’ve got this!",title:"Percentages in School and Life",avatar:"🏅",intro:"Percentages help us describe test scores, survey results, battery levels, and how much of a task is complete.",math:"18/20 = 0.9 = 90%",
+content:`<p>A learner answers 18 questions correctly out of 20.</p><ol><li>Divide: 18 ÷ 20 = 0.9.</li><li>Multiply by 100: 0.9 × 100 = 90%.</li></ol><p>The learner's score is <strong>90%</strong>.</p>`,
+visual:90,caption:"90 glowing squares out of 100 represent 90%.",tip:"Score percentage = correct answers ÷ total items × 100.",memory:"18 correct out of 20 = 90%.",prompt:"A learner gets 15 correct answers out of 20. What is the score?",options:["15%","20%","75%","80%"],answer:2,xp:10,voice:"At Scoreboard Summit, percentages help us understand scores. If a learner answers eighteen out of twenty questions correctly, eighteen divided by twenty is zero point nine. Multiply by one hundred to get ninety percent. Fifteen correct out of twenty equals seventy-five percent."},
+{tag:"Stage 7 • Final Gate",bubble:"You’re ready for the final challenge. Read carefully and do your best!",title:"Review Your Powers!",avatar:"🔮",intro:"You have explored the Math Kingdom. Before facing the Percentage Guardian, remember these simple rules.",math:"Understand → Convert → Apply",
+content:`<ol><li><strong>Percent:</strong> out of 100.</li><li><strong>Fraction to decimal:</strong> numerator ÷ denominator.</li><li><strong>Decimal to percent:</strong> multiply by 100.</li><li><strong>Percent to decimal:</strong> divide by 100.</li><li><strong>Find a percentage of an amount:</strong> convert to a decimal, then multiply.</li></ol><p>Take your time, read carefully, and trust your learning!</p>`,
+visual:100,caption:"100% means the whole amount.",tip:"Read each test question carefully and use the rules.",memory:"25% = 0.25 = 1/4.",prompt:"What does 100% represent?",options:["One-quarter","One-half","The whole amount","Ten parts"],answer:2,xp:10,voice:"You've reached the Final Gate! Remember that percent means out of one hundred. Divide to change a fraction into a decimal. Multiply by one hundred to change a decimal into a percent. To find a percentage of an amount, convert the percent to a decimal and multiply. You're ready to face the Percentage Guardian!"}
+];
+const test=[
+{q:"1. What does percent mean?",opts:["Out of 10","Out of 100","Add 100","Divide by 10"],a:1,why:"Percent means out of one hundred."},
+{q:"2. Which decimal is equal to 25%?",opts:["0.025","2.5","0.25","25.0"],a:2,why:"25 ÷ 100 = 0.25."},
+{q:"3. What is 3/4 as a decimal?",opts:["0.34","0.25","0.5","0.75"],a:3,why:"3 ÷ 4 = 0.75."},
+{q:"4. What is 10% of ₱200?",opts:["₱10","₱20","₱100","₱180"],a:1,why:"10% = 0.10, and 0.10 × ₱200 = ₱20."},
+{q:"5. A learner gets 18 correct answers out of 20. What is the score?",opts:["18%","20%","80%","90%"],a:3,why:"18 ÷ 20 = 0.9; 0.9 × 100 = 90%."}
+];
+let current=0,auto=false,xp=0,answeredStages=new Set(),lastScore=null;
+const $=id=>document.getElementById(id);
+function identity(){return {name:$("studentName").value.trim(),section:$("studentSection").value.trim()}}
+function validIdentity(){const s=identity();if(!s.name||!s.section){$("identity").scrollIntoView({behavior:"smooth",block:"center"});alert("Adventurer, please enter your name and section before continuing to the formative test.");return false}return true}
+function drawGrid(n){$("visual").innerHTML="";for(let i=0;i<100;i++){let d=document.createElement("span");d.className="sq"+(i<n?" on":"");d.setAttribute("aria-hidden","true");$("visual").appendChild(d)}$("meterFill").style.width=n+"%";$("caption").textContent=slides[current].caption}
+function render(){const s=slides[current];$("aiBubbleText").textContent=s.bubble||"I am your AI Mathematics Teaching Assistant. Let’s solve this quest together!";$("tag").textContent=s.tag;$("title").textContent=s.title;$("avatar").textContent=s.avatar;$("intro").textContent=s.intro;$("math").textContent=s.math;$("content").innerHTML=s.content;$("slideCount").textContent=s.tag;$("stage").textContent=`${current+1}/${slides.length}`;$("progress").style.width=((current+1)/slides.length*100)+"%";$("xp").textContent=xp;$("prev").disabled=current===0;$("next").disabled=current===slides.length-1;$("nav").querySelectorAll("button").forEach((b,i)=>b.classList.toggle("active",i===current));$("tip").innerHTML="<strong>✨ Guide's Hint:</strong> "+s.tip;$("memory").textContent=s.memory;drawGrid(s.visual);$("prompt").textContent=s.prompt;$("choices").innerHTML="";$("feedback").textContent="";$("feedback").className="feedback";s.options.forEach((o,i)=>{let b=document.createElement("button");b.type="button";b.textContent=String.fromCharCode(65+i)+". "+o;b.onclick=()=>check(i,b);$("choices").appendChild(b)})}
+function check(n,btn){const s=slides[current],f=$("feedback");[...$("choices").children].forEach(b=>b.disabled=true);if(n===s.answer){btn.classList.add("correct");f.textContent="Correct! +"+(answeredStages.has(current)?0:s.xp)+" XP. Quest knowledge gained! ✨";f.className="feedback good";if(!answeredStages.has(current)){xp+=s.xp;answeredStages.add(current);$("xp").textContent=xp}}else{$("choices").children[s.answer].classList.add("correct");btn.classList.add("wrong");f.textContent="Not quite. The glowing answer is correct. Review the quest scroll and try the next challenge.";f.className="feedback bad"}}
+function stop(){auto=false;if("speechSynthesis"in window)speechSynthesis.cancel()}
+function voiceList(){if(!("speechSynthesis"in window))return;let sel=$("voice"),old=sel.value;sel.innerHTML='<option value="">Automatic English</option>';speechSynthesis.getVoices().forEach((v,i)=>{if(v.lang.toLowerCase().startsWith("en")){let o=document.createElement("option");o.value=i;o.textContent=`${v.name} (${v.lang})`;sel.appendChild(o)}});if([...sel.options].some(o=>o.value===old))sel.value=old}
+function speak(text,done){if(!("speechSynthesis"in window)){alert("Voice playback is not available in this browser. Try Chrome or Edge.");return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text),vs=speechSynthesis.getVoices();u.lang="en-PH";u.rate=.92;let val=$("voice").value;if(val!==""&&vs[Number(val)])u.voice=vs[Number(val)];else{let v=vs.find(x=>x.lang==="en-PH")||vs.find(x=>x.lang.startsWith("en"));if(v)u.voice=v}u.onstart=()=>{$("aiHost").classList.add("talking");$("aiBubbleText").textContent="I’m explaining this stage—listen and follow along!";};u.onend=()=>{$("aiHost").classList.remove("talking");$("aiBubbleText").textContent=slides[current].bubble||"Great work! Keep going, Math Adventurer!";if(done)done()};u.onerror=()=>{$("aiHost").classList.remove("talking")};speechSynthesis.speak(u)}
+function narrate(){auto=false;speak(slides[current].voice)}
+function playAll(){stop();auto=true;current=0;render();speakNext()}
+function speakNext(){if(!auto)return;speak(slides[current].voice,()=>{if(!auto)return;if(current<slides.length-1){current++;render();setTimeout(speakNext,400)}else auto=false})}
+function buildTest(){$("questions").innerHTML="";test.forEach((q,i)=>{let box=document.createElement("div");box.className="question";let p=document.createElement("p");p.textContent=q.q;box.appendChild(p);q.opts.forEach((o,j)=>{let l=document.createElement("label"),r=document.createElement("input");r.type="radio";r.name="q"+i;r.value=j;r.required=true;l.append(r,document.createTextNode(" "+String.fromCharCode(65+j)+". "+o));box.appendChild(l)});let f=document.createElement("div");f.id="why"+i;f.className="feedback hidden";box.appendChild(f);$("questions").appendChild(box)});$("result").classList.add("hidden");lastScore=null}
+$("testForm").addEventListener("submit",e=>{e.preventDefault();if(!validIdentity())return;let score=0;test.forEach((q,i)=>{let chosen=document.querySelector(`input[name="q${i}"]:checked`),f=$("why"+i);f.classList.remove("hidden");if(chosen&&Number(chosen.value)===q.a){score++;f.textContent="Correct! "+q.why;f.className="feedback good"}else{f.textContent="Correct answer: "+String.fromCharCode(65+q.a)+". "+q.opts[q.a]+". "+q.why;f.className="feedback bad"}});lastScore=score;let s=identity(),r=$("result");r.classList.remove("hidden");const rank=score===5?"Percentage Champion 🏆":score>=3?"Rising Math Adventurer ⚔️":"Training Adventurer 💪";r.innerHTML=`<div class="eyebrow">QUEST RESULT • SCREENSHOT THIS CARD</div><h3>${rank}</h3><p class="identityline">🧙 Name: ${escapeHtml(s.name)}<br>🏰 Section: ${escapeHtml(s.section)}</p><div class="scoreline">Score: <strong>${score}/5</strong> (${score*20}%)</div><p>XP earned during lesson: <strong>${xp}</strong></p><p>${score===5?"Outstanding! You mastered this quest.":score>=3?"Great effort! Review the explanations to strengthen your skills.":"Keep training! Review the slides and try the formative test again."}</p><div class="screenshot-note"><strong>📸 SCREENSHOT INSTRUCTIONS</strong><br>Keep this result card visible with your name, section, and score. Take a screenshot of this screen and send it to Sir Raymond O. Galapin as instructed by your teacher.</div><div class="controls"><button type="button" onclick="window.print()" class="secondary">🖨️ Print / Save as PDF</button></div>`;$("result").scrollIntoView({behavior:"smooth",block:"center"})});
+function escapeHtml(str){return str.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+$("retry").onclick=()=>{if(!validIdentity())return;buildTest();$("testPanel").scrollIntoView({behavior:"smooth",block:"start"})};
+$("prev").onclick=()=>{stop();if(current>0){current--;render()}};
+$("next").onclick=()=>{stop();if(current<slides.length-1){current++;render()}};
+$("teach").onclick=narrate;$("all").onclick=playAll;$("stop").onclick=stop;
+$("pause").onclick=()=>{if(!("speechSynthesis"in window))return;if(speechSynthesis.speaking&&!speechSynthesis.paused)speechSynthesis.pause();else if(speechSynthesis.paused)speechSynthesis.resume()};
+$("startTest").onclick=()=>{if(!validIdentity())return;stop();$("testPanel").classList.remove("hidden");$("testPanel").scrollIntoView({behavior:"smooth",block:"start"})};
+slides.forEach((s,i)=>{let b=document.createElement("button");b.type="button";b.textContent=(i+1)+". "+s.tag;b.onclick=()=>{stop();current=i;render()};$("nav").appendChild(b)});
+if("speechSynthesis"in window){speechSynthesis.onvoiceschanged=voiceList;voiceList()}buildTest();render();
+</script>
+</body>
+</html>
